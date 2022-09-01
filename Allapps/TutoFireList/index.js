@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
-const DATA = [
+// const DATA = [
 //   {
 //     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
 //     title: 'First Item',
@@ -15,11 +15,11 @@ const DATA = [
 //     id: '58694a0f-3da1-471f-bd96-145571e29d72',
 //     title: 'Third Item',
 //   },
-];
+// ];
 
-const Item = ({ title }) => (
+const Item = ({ nom }) => (
   <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
+    <Text style={styles.title}>{nom}</Text>
   </View>
 );
 
@@ -27,6 +27,8 @@ const App = () => {
   const renderItem = ({ item }) => (
     <Item title={item.title} />
   );
+
+  const [data, setData] = useState([]) ;
 
   onResult = () =>{
     console.log('Result') ;
@@ -40,8 +42,14 @@ const App = () => {
   useEffect(()=>{
     firestore().collection('stagiaires').onSnapshot(snapShot=>{
         // console.log('snapShot', snapShot)
+
+        let dataTemp = [] ;
+
         snapShot.forEach(document => {
-            console.log('document', document.data())
+
+            dataTemp.push({id: document.id, ...document.data()})
+            setData(dataTemp)
+            console.log('document', dataTemp)
         })
     }) ;
   },[])
@@ -49,7 +57,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={DATA}
+        data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
