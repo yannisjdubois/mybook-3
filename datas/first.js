@@ -21,6 +21,11 @@ export const dataApp = [
     },
     {
         id:5,
+        titre:"TutoFireList",
+        nomApp:"AppTutoFireList",
+    },
+    {
+        id:6,
         titre:"E-Commerce",
         nomApp:"AppEcommerce",
     },

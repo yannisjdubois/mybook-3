@@ -11,11 +11,13 @@ const Tuto = () => {
 
     const readStagiaire = async () => {
 
-      const user = await firestore().collection('stagiaires').doc('W2wgCBMi50TZ9VsrJ9hS').get();
+      const user = await firestore().collection('stagiaires').doc('tEQAbKS23KjNZqif0RoT').get();
       console.log('user' , user) ;
     }
 
-    const addtNombre = () => { 
+    const addtNombre = async () => { 
+
+      await readStagiaire() ;
 
     console.log(getNombre.length)
 
