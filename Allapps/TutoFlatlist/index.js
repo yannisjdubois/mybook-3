@@ -1,11 +1,19 @@
 import { View, Text,FlatList,Button } from 'react-native'
 import React from 'react'
+import firestore from '@react-native-firebase/firestore';
 
 import { useState } from 'react'
 
 const Tuto = () => {
 
     const [getNombre, setNombre] = useState([1,2,3,4])
+
+
+    const readStagiaire = async () => {
+
+      const user = await firestore().collection('stagiaires').doc('W2wgCBMi50TZ9VsrJ9hS').get();
+      console.log('user' , user) ;
+    }
 
     const addtNombre = () => { 
 
