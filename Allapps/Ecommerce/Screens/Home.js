@@ -15,6 +15,7 @@ export default Home
 const styles = StyleSheet.create({
     content: {
         flex:1,
-        backgroundColor:"lightblue",
+        // backgroundColor:"lightblue",
+        margin: 10
     },
 })
