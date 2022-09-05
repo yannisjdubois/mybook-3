@@ -31,7 +31,7 @@ import Settings from './Screens/Settings';
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+const App = () => {
   return (
       <Tab.Navigator screenOptions={{headerShown:false}}>
         <Tab.Screen name="Accueil" component={Home} />
@@ -39,3 +39,5 @@ export default function App() {
       </Tab.Navigator>
   );
 }
+
+export default App ;
