@@ -31,13 +31,6 @@ const ItemNews = ({item}) => {
             
             <Text>{item.title}</Text>
 
-            <Button
-              title='Voir Plus'
-              onPress={() => navigation.navigate('DetailNews',{
-                item : item
-                
-              })}
-            />
         
         </View>
       

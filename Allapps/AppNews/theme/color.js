@@ -1,6 +1,6 @@
 export const colors = {
 
-    primary : 'rgba(168, 255, 122, 1)',
+    primary : '#26a69a',
 
-    textPrimary : 'rgba(141, 231, 251, 1)'
+    textPrimary : '#000000'
 }
