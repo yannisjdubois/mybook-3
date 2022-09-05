@@ -40,7 +40,7 @@ const App = () => {
 
   // Chargement de mon composant
   useEffect(()=>{
-    firestore().collection('stagiaires').onSnapshot(snapShot=>{
+    firestore().collection('YannisCollection').onSnapshot(snapShot=>{
         // console.log('snapShot', snapShot)
 
         let dataTemp = [] ;
