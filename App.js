@@ -35,7 +35,7 @@ const App = () => {
 
                 <Stack.Screen name="AppTuto" component={Tuto} />
                 {/* Ecommerce App creen */}
-                <Stack.Screen name="AppEcommerce" component={Ecommerce} />
+                <Stack.Screen name="AppEcommerce" options={{headerShown:false}} component={Ecommerce} />
                             
             </Stack.Navigator>
 

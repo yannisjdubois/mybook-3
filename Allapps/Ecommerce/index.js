@@ -33,7 +33,7 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-      <Tab.Navigator>
+      <Tab.Navigator screenOptions={{headerShown:false}}>
         <Tab.Screen name="Accueil" component={Home} />
         <Tab.Screen name="Mon Compte" component={Settings} />
       </Tab.Navigator>
