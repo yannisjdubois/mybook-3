@@ -38,11 +38,24 @@ const App = () => {
   const firebase = useContext(FirebaseContext) ;
 
   const initCategories = async () => {
-    const categories = await firebase.getCategories().limit(4).get() ;
-    console.log("categories :", categories.empty)
+    const categories = await firebase.getCategories() ;
+
+    if (!categories.empty){
+
+      console.log("page vide")
+
+      categories.forEach(categorieData =>{
+        console.log("first" , categorieData.data())
+      })
+    }
+
+
+    // console.log("categories :", categories.empty)
   }
 
   useEffect (()=>{
+
+    initCategories() ;
 
   },[])
 
