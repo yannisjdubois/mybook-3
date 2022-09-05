@@ -22,16 +22,30 @@
 
 // export default Index
 
-import * as React from 'react';
+import React, {useContext} from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './Screens/Home';
 import Settings from './Screens/Settings';
+import { FirebaseContext } from '../../firebaseContext';
+import { useEffect } from 'react';
 
 
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+
+  const firebase = useContext(FirebaseContext) ;
+
+  const initCategories = async () => {
+    const categories = await firebase.getCategories().limit(4).get() ;
+    console.log("categories :", categories.empty)
+  }
+
+  useEffect (()=>{
+
+  },[])
+
   return (
       <Tab.Navigator screenOptions={{headerShown:false}}>
         <Tab.Screen name="Accueil" component={Home} />
