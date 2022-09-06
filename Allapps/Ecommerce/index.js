@@ -28,12 +28,16 @@ import Home from './Screens/Home';
 import Settings from './Screens/Settings';
 import { FirebaseContext } from '../../firebaseContext';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCategorie } from '../../redux/action';
 
 
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+
+  const dispatch = useDispatch() ;
 
   const firebase = useContext(FirebaseContext) ;
 
@@ -45,7 +49,25 @@ const App = () => {
       console.log("page vide")
 
       categories.forEach(categorieData =>{
-        console.log("first" , categorieData.data())
+
+        // const tempCategorie = {
+        //   id : categorieData.id,
+        //   nom : categorieData.data().nom
+        // }
+
+
+        // console.log("first" , tempCategorie)
+
+
+        // Version déstructurée du code précédent pour màj instantanément
+        const tempCategorie = {
+          id : categorieData.id,
+          ...categorieData.data()
+        }
+
+
+        // console.log("first" , tempCategorie)
+        dispatch(addCategorie(tempCategorie))
       })
     }
 
