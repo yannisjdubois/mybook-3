@@ -15,15 +15,15 @@ const RenderArticle = ({article}) => {
 
 const Articles = () => {
 
-    const {dataCategories} = useSelector(state=>state) ;
+    const {dataArticles} = useSelector(state=>state) ;
 
-    console.log("dataArticles :", dataCategories) ;
+    console.log("dataArticles :", dataArticles) ;
 
   return (
     <View style={styles.content}>
       <Text style={styles.title}>Articles</Text>
       <FlatList
-      data={dataCategories}
+      data={dataArticles}
       numColumns={2}
       horizontal={false}
       renderItem={({item})=> <RenderArticle article={item} /> }

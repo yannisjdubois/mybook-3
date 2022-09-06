@@ -1,4 +1,4 @@
-import { ADD_CATEGORIE, EDIT_LOGIN } from "./type";
+import { ADD_ARTICLES, ADD_CATEGORIE, EDIT_LOGIN } from "./type";
 
 import { COUNT_NUMB } from "./type";
 
@@ -20,5 +20,12 @@ export const addCategorie = (categorie) => ({
 
     type : ADD_CATEGORIE,
     payload : categorie
+
+})
+
+export const addArticles = (article) => ({
+
+    type : ADD_ARTICLES,
+    payload : article
 
 })
