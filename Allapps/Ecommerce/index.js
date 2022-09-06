@@ -75,11 +75,50 @@ const App = () => {
     // console.log("categories :", categories.empty)
   }
 
+
+  const initArticles = async () => {
+    const articles = await firebase.getArticles() ;
+
+    if (!articles.empty){
+
+      console.log("page vide")
+
+      articles.forEach(articleData =>{
+
+        // const tempCategorie = {
+        //   id : articleData.id,
+        //   nom : articleData.data().nom
+        // }
+
+
+        // console.log("first" , tempArticle)
+
+
+        // Version déstructurée du code précédent pour màj instantanément
+        const tempArticle = {
+          id : articleData.id,
+          ...articleData.data()
+        }
+
+
+        // console.log("first" , tempCategorie)
+        dispatch(addArticle(tempArticle))
+      })
+    }
+
+
+    // console.log("categories :", categories.empty)
+  }
+
   useEffect (()=>{
 
     initCategories() ;
+    
+    initArticles() ;
 
   },[])
+
+  
 
   return (
       <Tab.Navigator screenOptions={{headerShown:false}}>

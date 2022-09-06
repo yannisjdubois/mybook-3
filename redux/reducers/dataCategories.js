@@ -13,13 +13,19 @@ export default function (state=initStateCategories, action){
         // return nextState
         // met à jour categories
 
-        // action.payload est la valeur du dispatch
+        if(state.find(item=> item.id == action.payload.id) == undefined){
+            console.log(state.find(item=> item.id == action.payload.id))
+
+            // action.payload est la valeur du dispatch
             return [...state, action.payload] ;
 
 
-    }
-        
-    else {
+        }else {
+
+            return state ;
+        }
+
+    }else {
 
             return state ;
         }
