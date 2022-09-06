@@ -8,6 +8,8 @@ class Firebase {
     }
 
     getCategories = () => this.firestore.collection("CategoriesYannis").get()
+
+    getArticles = () => this.firestore.collection("ArticlesYannis").get()
 }
 
 export default Firebase ;
