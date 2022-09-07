@@ -6,7 +6,6 @@ const Settings = () => {
   return (
     <View style={styles.content}>
       <Text>Mon Compte</Text>
-      <Details/>
     </View>
   )
 }
