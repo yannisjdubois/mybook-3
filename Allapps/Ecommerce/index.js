@@ -45,7 +45,7 @@ const Accueil = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name='Accueil' component={Home} />
+      <Stack.Screen name='Home' component={Home} />
       <Stack.Screen name='Details' component={Details} />
     </Stack.Navigator>
   )
