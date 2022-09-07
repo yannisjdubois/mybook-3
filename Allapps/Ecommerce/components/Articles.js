@@ -9,7 +9,7 @@ const RenderArticle = ({article}) => {
     const navigation = useNavigation() ;
 
     const onPressArticle = () => {
-        navigation.navigate("Details")
+        navigation.navigate("Details", {id:article.id})
     }
 
     return (
