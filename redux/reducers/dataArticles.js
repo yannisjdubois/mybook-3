@@ -14,7 +14,7 @@ export default function (state=initStateArticles, action){
         // return nextState
         // met à jour categories
 
-        return existItem(state, action.payload.id)?[...state, action.payload]:state ;
+        return !existItem(state, action.payload.id)?[...state, action.payload]:state ;
 
 
     }

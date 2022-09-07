@@ -14,7 +14,7 @@ export default function (state=initStateCategories, action){
         // return nextState
         // met à jour categories
 
-        return existItem(state, action.payload.id)?[...state, action.payload]:state ;
+        return !existItem(state, action.payload.id)?[...state, action.payload]:state ;
 
         //     // Syntaxe du return précédent en IF
         // if(existItem(state, action.payload.id)){
