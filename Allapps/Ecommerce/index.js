@@ -114,7 +114,7 @@ const App = () => {
 
     initCategories() ;
     
-    initArticles() ;
+    // initArticles() ;
 
   },[])
 

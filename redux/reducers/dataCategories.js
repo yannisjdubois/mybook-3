@@ -1,4 +1,5 @@
 import { ADD_CATEGORIE } from "../type";
+import { existItem } from "../../common/fonctions";
 
 const initStateCategories = [
     {id:1, nom:"catégorie 1"},
@@ -13,17 +14,19 @@ export default function (state=initStateCategories, action){
         // return nextState
         // met à jour categories
 
-        if(state.find(item=> item.id == action.payload.id) == undefined){
-            console.log(state.find(item=> item.id == action.payload.id))
+        return existItem(state, action.payload.id)?[...state, action.payload]:state ;
 
-            // action.payload est la valeur du dispatch
-            return [...state, action.payload] ;
+        //     // Syntaxe du return précédent en IF
+        // if(existItem(state, action.payload.id)){
+
+        //     // action.payload est la valeur du dispatch
+        //     return [...state, action.payload] ;
 
 
-        }else {
+        // }else {
 
-            return state ;
-        }
+        //     return state ;
+        // }
 
     }else {
 

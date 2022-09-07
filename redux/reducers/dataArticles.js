@@ -1,4 +1,5 @@
 import { ADD_ARTICLES } from "../type";
+import { existItem } from "../../common/fonctions";
 
 const initStateArticles = [
     {id:1, nom:"article 1"},
@@ -13,8 +14,7 @@ export default function (state=initStateArticles, action){
         // return nextState
         // met à jour categories
 
-        // action.payload est la valeur du dispatch
-            return [...state, action.payload] ;
+        return existItem(state, action.payload.id)?[...state, action.payload]:state ;
 
 
     }
