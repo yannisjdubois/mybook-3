@@ -22,19 +22,34 @@
 
 // export default Index
 
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { FirebaseContext } from '../../firebaseContext';
+import { useDispatch } from 'react-redux';
+import { addCategorie, addArticle } from '../../redux/action';
+
 import Home from './Screens/Home';
 import Settings from './Screens/Settings';
-import { FirebaseContext } from '../../firebaseContext';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { addCategorie } from '../../redux/action';
-import { addArticle } from '../../redux/action';
+import Details from './Screens/Details';
+
+
 
 
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+const Accueil = () => {
+
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='Accueil' component={Home} />
+      <Stack.Screen name='Details' component={Details} />
+    </Stack.Navigator>
+  )
+}
 
 const App = () => {
 
@@ -123,8 +138,9 @@ const App = () => {
 
   return (
       <Tab.Navigator screenOptions={{headerShown:false}}>
-        <Tab.Screen name="Accueil" component={Home} />
+        <Tab.Screen name="Accueil" component={Accueil} />
         <Tab.Screen name="Mon Compte" component={Settings} />
+        <Tab.Screen name="Panier" component={Settings} />
       </Tab.Navigator>
   );
 }

@@ -1,11 +1,19 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigation } from '@react-navigation/native'
 
 
 const RenderArticle = ({article}) => {
-        return (
-        <TouchableOpacity style={styles.touchArticle}>
+
+    const navigation = useNavigation() ;
+
+    const onPressArticle = () => {
+        navigation.navigate("Details")
+    }
+
+    return (
+        <TouchableOpacity onPress={onPressArticle} style={styles.touchArticle}>
             <Text style={styles.textArticle}>
                 {article.nom}
             </Text>
