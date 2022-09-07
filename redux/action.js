@@ -23,7 +23,7 @@ export const addCategorie = (categorie) => ({
 
 })
 
-export const addArticles = (article) => ({
+export const addArticle = (article) => ({
 
     type : ADD_ARTICLES,
     payload : article

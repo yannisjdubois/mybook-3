@@ -30,6 +30,7 @@ import { FirebaseContext } from '../../firebaseContext';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCategorie } from '../../redux/action';
+import { addArticle } from '../../redux/action';
 
 
 
@@ -114,7 +115,7 @@ const App = () => {
 
     initCategories() ;
     
-    // initArticles() ;
+    initArticles() ;
 
   },[])
 
