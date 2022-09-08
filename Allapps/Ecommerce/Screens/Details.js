@@ -1,15 +1,23 @@
-import { View, Text } from 'react-native'
+import { View, Text, ActivityIndicator } from 'react-native'
 import React, {useState, useContext, useEffect} from 'react'
 import { FirebaseContext } from '../../../firebaseContext';
+
+
+const NoArticle = () => {
+
+  <Text>Pas d'articles</Text>
+}
 
 const Details = ({route}) => {
 
   const { id } = route.params ;
-  const [article, setArticle] = useState() ;
+  const [article, setArticle] = useState(null) ;
+  const [load, setLoad] = useState(false) ;
   const firebase = useContext(FirebaseContext) ;
 
   const getArticles = async () => {
 
+    setLoad(true) ;
     const rqArticle = await firebase.getArticleById(id) ;
 
   }
@@ -23,8 +31,9 @@ const Details = ({route}) => {
   console.log("id", id)
 
   return (
+    // Si load = true Afficher ActivityIndicator Sinon Si article est null afficher NoArticle Sinon afficher Details
     <View>
-      <Text>Details</Text>
+      {(load == true) ? <ActivityIndicator/> : (article == null) ? <NoArticle/> : <Text>Details</Text>}
     </View>
   )
 }
