@@ -11,7 +11,7 @@ const Tuto = () => {
 
     const readStagiaire = async () => {
 
-      const user = await firestore().collection('YannisCollection').doc('te5eoa2a9shjLgR4vWlK').get();
+      const user = await firestore().collection('stagiaires').doc('W2wgCBMi50TZ9VsrJ9hS').get();
       console.log('user' , user) ;
     }
 
