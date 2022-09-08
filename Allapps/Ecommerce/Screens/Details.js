@@ -20,6 +20,11 @@ const Details = ({route}) => {
     setLoad(true) ;
     const rqArticle = await firebase.getArticleById(id) ;
 
+    setArticle(rqArticle.data()) ;
+    setLoad(false) ;
+
+    console.log(rqArticle.data()) ;
+    
   }
 
   useEffect (()=>{
@@ -31,9 +36,9 @@ const Details = ({route}) => {
   console.log("id", id)
 
   return (
-    // Si load = true Afficher ActivityIndicator Sinon Si article est null afficher NoArticle Sinon afficher Details
+    // Si load = true Afficher la couche de chargement Sinon Si article est null afficher NoArticle Sinon afficher Details
     <View>
-      {(load == true) ? <ActivityIndicator/> : (article == null) ? <NoArticle/> : <Text>Details</Text>}
+      {(load == true) ? <ActivityIndicator/> : (article == null) ? <NoArticle/> : <Text>{article.nom}</Text>}
     </View>
   )
 }
