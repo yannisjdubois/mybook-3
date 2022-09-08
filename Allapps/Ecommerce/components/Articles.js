@@ -17,6 +17,10 @@ const RenderArticle = ({article}) => {
             <Text style={styles.textArticle}>
                 {article.nom}
             </Text>
+            <Text style={styles.textArticle}>
+                {article.image}
+                {article.prix}
+            </Text>
         </TouchableOpacity>
     )
 }
