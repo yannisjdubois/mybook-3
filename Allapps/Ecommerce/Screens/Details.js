@@ -20,8 +20,14 @@ const Details = ({route}) => {
     setLoad(true) ;
     const rqArticle = await firebase.getArticleById(id) ;
 
-    setArticle(rqArticle.data()) ;
-    setLoad(false) ;
+    setTimeout(() => {
+
+      setArticle(rqArticle.data()) ;
+      setLoad(false) ;
+
+    }, 1000)
+
+
 
     console.log(rqArticle.data()) ;
     
