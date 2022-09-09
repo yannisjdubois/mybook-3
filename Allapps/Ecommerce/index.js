@@ -33,6 +33,7 @@ import { addCategorie, addArticle } from '../../redux/action';
 import Home from './Screens/Home';
 import Settings from './Screens/Settings';
 import Details from './Screens/Details';
+import Panier from './Screens/Panier';
 
 
 
@@ -139,8 +140,8 @@ const App = () => {
   return (
       <Tab.Navigator screenOptions={{headerShown:false}}>
         <Tab.Screen name="Accueil" component={Accueil} />
-        <Tab.Screen name="Mon Compte" component={Settings} />
         <Tab.Screen name="Panier" component={Settings} />
+        <Tab.Screen name="Mon Compte" component={Settings} />
       </Tab.Navigator>
   );
 }

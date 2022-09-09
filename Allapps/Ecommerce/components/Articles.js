@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
@@ -14,11 +14,25 @@ const RenderArticle = ({article}) => {
 
     return (
         <TouchableOpacity onPress={onPressArticle} style={styles.touchArticle}>
+            {/* <Image
+                style={styles.imgArticle}
+                source={{
+                uri: 'https://firebasestorage.googleapis.com/v0/b/mybook-749cb.appspot.com/o/imagesArticles%2Fpain-sans-levain.jpg?alt=media&token=9ee7afb0-7b71-441e-bf02-b1b838b122ef',
+                }}
+            /> */}
+            {/* <Text style={styles.Article}>
+                {article.image}
+                <Image
+                style={styles.imgArticle}
+                source={article.image}
+                
+            /> */}
+            
+            {/* </Text> */}
             <Text style={styles.textArticle}>
                 {article.nom}
             </Text>
             <Text style={styles.textArticle}>
-                {article.image}
                 {article.prix}
             </Text>
         </TouchableOpacity>
@@ -69,6 +83,11 @@ const styles = StyleSheet.create({
         height:200,
     },
 
+    // imgArticle: {
+    //     width:140,
+    //     height:180,
+
+    // },
     textArticle: {
         fontSize:18,
         color:"grey",
